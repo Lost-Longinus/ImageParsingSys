@@ -12,6 +12,14 @@
         <servlet-name>Parse</servlet-name>
         <url-pattern>/parse</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>uploadParse</servlet-name>
+        <servlet-class>sjtu.edu.UploadParseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>uploadParse</servlet-name>
+        <url-pattern>/uploadParse</url-pattern>
+    </servlet-mapping>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

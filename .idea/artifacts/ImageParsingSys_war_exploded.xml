@@ -32,6 +32,7 @@
           <element id="file-copy" path="$PROJECT_DIR$/../jar/Tess4J/lib/commons-beanutils-1.9.2.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/../jar/Tess4J/lib/log4j-over-slf4j-1.7.25.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/../jar/Tess4J/lib/xmlgraphics-commons-1.5.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../jar/fileupload/commons-fileupload/commons-fileupload-1.2.1/lib/commons-fileupload-1.2.1.jar" />
         </element>
       </element>
     </root>

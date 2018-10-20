@@ -1,21 +1,24 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 金鹏飞
+  Date: 2018/10/20
+  Time: 11:57
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <title>ImageParse</title>
   </head>
   <body>
-    <div align="center">
-      <br>
-      <b>Welcome to ImageParsing System</b><br><br>
-      <b>=========================================</b><br><br>
-      <form id="form" align="center" enctype="multipart/form-data"></form>
-        <input type="file" id="file" multiple="multiple" onchange="parse(this)">&nbsp;&nbsp;<br><br>
-        <!--<input id="submit" type="button" value="解析图片" onclick="parse(this)"><br>-->
+    <div align="center"><b>Welcome to ImageParsing System</b></div><br>
+    <div align="center"><b>=========================================</b></div><br>
 
-      <br><br>
-      <span id="ParsedText"></span><br/>
-    </div>
+    <div align="center"><input align="center" type="file" id="file"></div><br><br>
+    <div align="center"><button align="center" id="submit" style="width:100px;height:30px;">解析图片</button></div><br><br>
+
+    <div align="center"><span id="ParsedText"></span></div><br/>
+
     <script type="text/javascript">
         //创建AJAX异步对象
         function createAJAX(){
@@ -34,26 +37,27 @@
             return ajax;
         }
     </script>
-
     <script type="text/javascript">
-        function parse(fileUpload){
+        document.getElementById("file").onchange = function(){
             var path = document.getElementById("file").value
             var spanElement = document.getElementById("ParsedText");
-            spanElement.innerHTML = "<div align=\"center\">请确认将要解析以下图片：</div><br>" + path + "<br>";
-            var file = fileUpload.files[0];
-            var formData = new FormData();
-            formData.append(file.name, file);
+            spanElement.innerHTML = "<div align=\"center\">以下为需要解析的图片：</div><br>" + path + "<br>";
+        }
+    </script>
+    <script type="text/javascript">
+        document.getElementById("submit").onclick = function(){
+            var path = document.getElementById("file").value
             //NO1)创建AJAX异步对象
             var ajax = createAJAX();
             //NO2)准备发送请求
             var method = "POST";
-            var url = "${pageContext.request.contextPath}/uploadParse?time="+new Date().getTime();
+            var url = "${pageContext.request.contextPath}/parse?time="+new Date().getTime();
             ajax.open(method,url);
             //设置AJAX请求头
-            //ajax.setRequestHeader("content-type","false");
+            ajax.setRequestHeader("content-type","application/x-www-form-urlencoded");
             //NO3)
-            //var content = null;
-            ajax.send(formData);
+            var content = "path=" + path;
+            ajax.send(content);
 
             //---------------------------------等待
             //NO4)AJAX异步对象不断监听服务器响应的状态0-1-2-3-【4】

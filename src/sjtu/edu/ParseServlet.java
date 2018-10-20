@@ -38,7 +38,7 @@ public class ParseServlet extends HttpServlet {
 		//设置训练库的位置
 		instance.setDatapath(courseFile + "//tessdata");
 
-		instance.setLanguage("eng");//chi_sim ：简体中文， eng	根据需求选择语言库
+		instance.setLanguage("chi_sim");//chi_sim ：简体中文， eng	根据需求选择语言库
 		String result = null;
 		try {
 			long startTime = System.currentTimeMillis();
@@ -46,11 +46,11 @@ public class ParseServlet extends HttpServlet {
 			long endTime = System.currentTimeMillis();
 			System.out.println("Time is：" + (endTime - startTime) + " 毫秒");
 		} catch (TesseractException e) {
-			e.printStackTrace();
+			result = e.getMessage();
 		}
 		System.out.println("result: ");
 		System.out.println(result);
-
+		result = result.replace("\n","<br>");
 		//以流的方式将结果响应到AJAX异步对象中
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter pw = response.getWriter();

@@ -19,8 +19,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 7.0.91" level="application_server_libraries" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.91" level="application_server_libraries" />
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
           <root url="file://$MODULE_DIR$/../jar/Tess4J/lib" />
@@ -30,10 +30,19 @@
         <jarDirectory url="file://$MODULE_DIR$/../jar/Tess4J/lib" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../jar/Tess4J/dist/tess4j-3.4.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../jar/fileupload/commons-fileupload/commons-fileupload-1.2.1/lib/commons-fileupload-1.2.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
