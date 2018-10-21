@@ -119,16 +119,8 @@ public class UploadParseServlet extends HttpServlet {
 		File file = new File(basePath+filename);
 		ITesseract instance = new Tesseract();
 
-		//获取训练库所在文件夹路径
-		File directory = new File("D:\\Github\\ORCTest");
-		String courseFile = null;
-		try {
-			courseFile = directory.getCanonicalPath();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		//设置训练库的位置
-		instance.setDatapath(courseFile + "//tessdata");
+		instance.setDatapath("D:\\Github\\jar\\Tess4J\\tessdata");
 
 		instance.setLanguage("eng");//chi_sim ：简体中文， eng	根据需求选择语言库
 		String result = null;

@@ -1,11 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 金鹏飞
-  Date: 2018/10/20
-  Time: 11:57
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <title>ImageParse</title>
@@ -15,10 +9,10 @@
       <br>
       <b>Welcome to ImageParsing System</b><br><br>
       <b>=========================================</b><br><br>
-      <form id="form" align="center" action="${pageContext.request.contextPath}/uploadParse" method="post" enctype="multipart/form-data">
-        <input type="file" id="file">&nbsp;&nbsp;<br><br>
-        <input id="submit" type="submit" value="解析图片"><br>
-      </form>
+      <form id="form" align="center" enctype="multipart/form-data"></form>
+        <input type="file" id="file" multiple="multiple" onchange="parse(this)">&nbsp;&nbsp;<br><br>
+        <!--<input id="submit" type="button" value="解析图片" onclick="parse(this)"><br>-->
+
       <br><br>
       <span id="ParsedText"></span><br/>
     </div>
@@ -40,16 +34,15 @@
             return ajax;
         }
     </script>
+
     <script type="text/javascript">
-        document.getElementById("file").onchange = function(){
+        function parse(fileUpload){
             var path = document.getElementById("file").value
             var spanElement = document.getElementById("ParsedText");
-            spanElement.innerHTML = "<div align=\"center\">以下为需要解析的图片：</div><br>" + path + "<br>";
-        }
-    </script>
-    <script type="text/javascript">
-        document.getElementById("form").onload = function(){
-            //var path = document.getElementById("file").value
+            spanElement.innerHTML = "<div align=\"center\">请确认将要解析以下图片：</div><br>" + path + "<br>";
+            var file = fileUpload.files[0];
+            var formData = new FormData();
+            formData.append(file.name, file);
             //NO1)创建AJAX异步对象
             var ajax = createAJAX();
             //NO2)准备发送请求
@@ -57,10 +50,10 @@
             var url = "${pageContext.request.contextPath}/uploadParse?time="+new Date().getTime();
             ajax.open(method,url);
             //设置AJAX请求头
-            ajax.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            //ajax.setRequestHeader("content-type","false");
             //NO3)
-            var content = null;
-            ajax.send(content);
+            //var content = null;
+            ajax.send(formData);
 
             //---------------------------------等待
             //NO4)AJAX异步对象不断监听服务器响应的状态0-1-2-3-【4】

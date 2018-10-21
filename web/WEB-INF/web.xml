@@ -20,6 +20,14 @@
         <servlet-name>uploadParse</servlet-name>
         <url-pattern>/uploadParse</url-pattern>
     </servlet-mapping>
+    <servlet>
+    <servlet-name>bufferParse</servlet-name>
+    <servlet-class>sjtu.edu.BufferParseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bufferParse</servlet-name>
+        <url-pattern>/bufferParse</url-pattern>
+    </servlet-mapping>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
