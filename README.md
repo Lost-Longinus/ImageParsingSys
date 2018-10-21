@@ -8,7 +8,7 @@ after open the homepage,
 you only need to upload the images,   
 then, results will show on the same page.  
 * A sample:  
-![sample](‪D:\picture\number.PNG)
+![sample](‪https://github.com/Lost-Longinus/ImageParsingSys/blob/master/web/WEB-INF/resource/number.PNG)
 * convert to as bellow:   
 9642316857
 # If you enjoy this App, one star is appreciated!
