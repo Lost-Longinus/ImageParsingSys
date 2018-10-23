@@ -1,6 +1,6 @@
 # ImageParsingSys
 * This is an ImageParsingSystem   
-I study in SJTU while I do my research on remote server in Beijing.    
+I study in Shanghai while I do my research on remote server in Beijing.    
 However, I have no authority of the remote server.   
 Thus, this web App is developed for converting screenshots of remote server to a text on local PC.    
 * This web App is easily operated,   
